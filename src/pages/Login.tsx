@@ -31,14 +31,15 @@ const Login = () => {
       setError("");
       const response = await loginUser(formData);
       console.log(response.data);
-      if( response.data.success){
+      if (response.data.success) {
         const days = 7;
         const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         const expires = "; expires=" + date.toUTCString();
         const token = response.data.token;
-        // Set the cookie (Secure ensures it only transmits over HTTPS)
-        document.cookie = `authToken=${token}${expires}; path=/; Secure; SameSite=Strict`;
+        const isSecure = window.location.protocol === "https:";
+        const cookieAttributes = `path=/; max-age=${days * 24 * 60 * 60}; SameSite=Lax${isSecure ? "; Secure" : ""}`;
+        document.cookie = `authToken=${token}${expires}; ${cookieAttributes}`;
       }
       const user = response.data.user;
       console.log("User Data:", user);
