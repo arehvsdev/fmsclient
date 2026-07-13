@@ -41,6 +41,7 @@ const Login = () => {
         document.cookie = `authToken=${token}${expires}; path=/; Secure; SameSite=Strict`;
       }
       const user = response.data.user;
+      console.log("User Data:", user);
       if (user.role === "student") {
         navigate("/student/dashboard");
       } else if (user.role === "faculty") {

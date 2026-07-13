@@ -25,7 +25,8 @@ function FacultyDashboard() {
   const fetchFacultyData = async () => {
     try {
       setLoading(true)
-      const response = await getCurrentUser()
+      const response = await getCurrentUser();
+      alert(JSON.stringify(response.data?.user));
       setFacultyUser(response.data?.user)
       // TODO: Fetch student count and feedback from API
       setStudentCount(45) // Placeholder
