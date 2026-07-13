@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { getCurrentUser } from '../services/authService'
 import Topbar from '../components/Topbar'
 import '../styles/FacultyDashboard.css'

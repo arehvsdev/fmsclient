@@ -164,6 +164,12 @@ const Login = () => {
                 </button>
               </form>
 
+              {error && (
+                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+                  {error}
+                </div>
+              )}
+
               <p className="mt-8 text-center text-sm text-slate-500">
                 © 2026 Feedback Management System
               </p>
