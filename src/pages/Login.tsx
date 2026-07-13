@@ -30,7 +30,6 @@ const Login = () => {
       setLoading(true);
       setError("");
       const response = await loginUser(formData);
-      console.log(response.data);
       if (response.data.success) {
         const days = 7;
         const date = new Date();
@@ -42,7 +41,6 @@ const Login = () => {
         document.cookie = `authToken=${token}${expires}; ${cookieAttributes}`;
       }
       const user = response.data.user;
-      console.log("User Data:", user);
       if (user.role === "student") {
         navigate("/student/dashboard");
       } else if (user.role === "faculty") {

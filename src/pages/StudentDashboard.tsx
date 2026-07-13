@@ -17,7 +17,6 @@ function StudentDashboard() {
     const loadUser = async () => {
       try {
         const response = await getCurrentUser();
-        console.log(response.data);
         const user = response.data.user;
         dispatch(setUser(user));
         setStudent({
